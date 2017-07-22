@@ -3,7 +3,7 @@ class Nexusformat < Formula
   homepage "http://www.nexusformat.org"
   url "https://github.com/nexusformat/code/archive/v4.4.3.tar.gz"
   sha256 "e78a116feb2ebd04de31a8d8707c65e8e15a64aa8999a40fea305e3909bd6533"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -30,6 +30,7 @@ class Nexusformat < Formula
     cmake_args = std_cmake_args
     cmake_args << "-DENABLE_APPS=TRUE"
     cmake_args << "-DENABLE_CXX=TRUE"
+    cmake_args << "-DENABLE_FORTRAN90=TRUE"
     cmake_args << "-DENABLE_MXML=TRUE"
     cmake_args << "-DENABLE_HDF4=TRUE" if build.with? "hdf4"
     system "cmake", ".", *cmake_args
